@@ -12,12 +12,20 @@ class PostController extends Controller
      */
     public function index()
     {
+        /*
+        * first(), find() and value() returns object
+        */
+
+        $post = DB::table('posts')
+            ->find(1000);
+
+
         $posts = DB::table('posts')
             ->select('is_published');
         
         $added = $posts->addSelect('description')->get();
 
-        dd($added);
+        dd($post);
     }
 
     /**
