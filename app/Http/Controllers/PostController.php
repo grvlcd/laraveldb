@@ -59,6 +59,12 @@ class PostController extends Controller
                 ], ['id' => 1005]);
         */
 
+        /*
+            delete()
+            chains:
+                where()
+        */
+
         $post = DB::table('posts')->upsert([
             [
                 'user_id' => 1,
