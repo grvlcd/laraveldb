@@ -15,7 +15,7 @@ class PostController extends Controller
         $posts = DB::table('posts')
             ->select('is_published');
         
-        $added = $posts->addSelect('description');
+        $added = $posts->addSelect('description')->get();
 
         dd($added);
     }
