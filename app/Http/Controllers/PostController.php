@@ -16,18 +16,36 @@ class PostController extends Controller
         * first(), find() and value() returns object
         */
 
-        $post = DB::table('posts')
-            ->find(1000);
-            
-        /* pluck returns array of data with the specified column */    
-        $titles = DB::table('posts')
-            ->pluck('title');
+        // $post = DB::table('posts')
+        //     ->find(1000);
+
+        /* pluck returns array of data with the specified column */
+        // $titles = DB::table('posts')
+        //     ->pluck('title');
 
 
-        $posts = DB::table('posts')
-            ->select('is_published');
-        
-        $added = $posts->addSelect('description')->get();
+        // $posts = DB::table('posts')
+        //     ->select('is_published');
+
+        // $added = $posts->addSelect('description')->get();
+
+        // dd($post);
+
+        /*
+        * insert(), insertOrIgnore() and upsert() - insert and insert update to database
+        */
+
+        $post = DB::table('posts')->upsert([
+            [
+                'user_id' => 1,
+                'title' => 'Inserted through the DB facade 2',
+                'slug' => 'inserted-through-the-db-facade-2',
+                'excerpt' => 'excerpt',
+                'description' => 'description',
+                'is_published' => true,
+                'min_to_read' => 6
+            ]
+        ], ['title', 'slug']);
 
         dd($post);
     }
