@@ -32,7 +32,31 @@ class PostController extends Controller
         // dd($post);
 
         /*
-        * insert(), insertOrIgnore() and upsert() - insert and insert update to database
+            insert()
+            insertOrIgnore()
+             - ignore if data exists
+            upsert()
+             - insert update to database
+            insertGetId()
+             - insert data and returns id
+        */
+
+        /*
+            update()
+            chains:
+                where()
+                orWhere()
+            increment()
+            decrement()
+             - accepts second parameter as step
+             - accepts array as first parameter to update multiple columns
+            updateOrInsert()
+             - update data or insert if data is not equal to value
+             $posts = DB::table('posts')
+                ->updateOrInsert([
+                    'excerpt' => 'Laravel',
+                    'description' => 'Laravel',
+                ], ['id' => 1005]);
         */
 
         $post = DB::table('posts')->upsert([
