@@ -18,6 +18,10 @@ class PostController extends Controller
 
         $post = DB::table('posts')
             ->find(1000);
+            
+        /* pluck returns array of data with the specified column */    
+        $titles = DB::table('posts')
+            ->pluck('title');
 
 
         $posts = DB::table('posts')
