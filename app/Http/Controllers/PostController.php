@@ -65,6 +65,20 @@ class PostController extends Controller
                 where()
         */
 
+        /*
+            aggregate methods:
+            count()
+            sum()
+            max()
+            min()
+            avg()
+        */
+
+        /*
+            exists()
+            doesntExists()
+        */
+
         $post = DB::table('posts')->upsert([
             [
                 'user_id' => 1,
