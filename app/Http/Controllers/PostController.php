@@ -79,6 +79,16 @@ class PostController extends Controller
             doesntExists()
         */
 
+        /*
+            whereNot()
+            orWhereNot()
+        */
+
+        /*
+            whereBetween(column, array)
+            whereNotBetween(column, array)
+        */
+
         $post = DB::table('posts')->upsert([
             [
                 'user_id' => 1,
